@@ -1,0 +1,25 @@
+{
+  "name": "electron-vite-vue",
+  "productName": "electron-vite-vue",
+  "version": "1.0.0",
+  "description": "Quickstart for an Electron application with Vue.js",
+  "main": ".vite/build/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@electron-forge/cli": "^7.7.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
+    "@electron-forge/plugin-fuses": "^7.7.0",
+    "@electron-forge/plugin-vite": "^7.7.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "35.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "~4.5.4",
+    "vite": "^5.4.14"
+  }
+}
