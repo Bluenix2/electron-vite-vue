@@ -2,6 +2,10 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('node:path')
 
+// Global variables the Electron Forge Vite plugin defines for HMR
+declare const MAIN_WINDOW_VITE_DEV_SERVER_URL: string;
+declare const MAIN_WINDOW_VITE_NAME: string;
+
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
