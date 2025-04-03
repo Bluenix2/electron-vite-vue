@@ -31,7 +31,7 @@ module.exports = {
       renderer: [
         {
           name: 'main_window',
-          config: './renderer/vite.renderer.config.ts',
+          config: './main_window/vite.main_window.config.ts',
         },
       ],
     }),
