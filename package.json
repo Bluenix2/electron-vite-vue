@@ -9,7 +9,9 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "electron-forge publish",
+    "build": "vite build main_window",
+    "serve": "vite main_window"
   },
   "dependencies": {
     "pinia": "^3.0.1",

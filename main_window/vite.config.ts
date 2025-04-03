@@ -10,6 +10,11 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  build: {
+    // When building, output to dist/ in the project root instead of main_window/dist/
+    outDir: '../dist',
+    emptyOutDir: true,  // Default behaviour if outDir is inside of root
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
