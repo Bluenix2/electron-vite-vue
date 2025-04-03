@@ -1,8 +1,9 @@
-const { FusesPlugin } = require('@electron-forge/plugin-fuses');
-const { FuseV1Options, FuseVersion } = require('@electron/fuses');
-const { AutoUnpackNativesPlugin } = require('@electron-forge/plugin-auto-unpack-natives');
+const { FusesPlugin } = require('@electron-forge/plugin-fuses')
+const { FuseV1Options, FuseVersion } = require('@electron/fuses')
+const { AutoUnpackNativesPlugin } = require('@electron-forge/plugin-auto-unpack-natives')
+const { VitePlugin } = require('@electron-forge/plugin-vite')
 
-const { VitePlugin } = require('@electron-forge/plugin-vite');
+const { CleanPackage } = require('./packaging/CleanPackage')
 
 // This is a JavaScript file to avoid having to depend on ts-node. Since Vite manages
 // all the other transpiling it would only be used to load this config file.
@@ -35,6 +36,10 @@ module.exports = {
         },
       ],
     }),
+
+    // Cleanup fields in package.json, because it is a custom plugin,
+    // configuration is handled inside of its file. It's not reused.
+    new CleanPackage(),
 
     // Reduce loading times and disk consumption by unpacking
     // native Node modules from your Forge app's ASAR archive.
