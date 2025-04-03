@@ -12,7 +12,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./render', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-})
+  define: {
+    // Allow Vite to tree-shake away code for web-only builds
+    'import.meta.env.ELECTRON': JSON.stringify(process.env.ELECTRON ?? false),
+  },
+});

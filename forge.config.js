@@ -1,10 +1,12 @@
-import type { ForgeConfig } from '@electron-forge/shared-types';
-import { VitePlugin } from '@electron-forge/plugin-vite';
-import { FusesPlugin } from '@electron-forge/plugin-fuses';
-import { FuseV1Options, FuseVersion } from '@electron/fuses';
-import { AutoUnpackNativesPlugin } from '@electron-forge/plugin-auto-unpack-natives';
+const { FusesPlugin } = require('@electron-forge/plugin-fuses');
+const { FuseV1Options, FuseVersion } = require('@electron/fuses');
+const { AutoUnpackNativesPlugin } = require('@electron-forge/plugin-auto-unpack-natives');
 
-const config: ForgeConfig = {
+const { VitePlugin } = require('@electron-forge/plugin-vite');
+
+// This is a JavaScript file to avoid having to depend on ts-node. Since Vite manages
+// all the other transpiling it would only be used to load this config file.
+module.exports = {
   packagerConfig: {
     asar: true,
   },
@@ -16,20 +18,20 @@ const config: ForgeConfig = {
       build: [
         {
           // `entry` is just an alias for `build.lib.entry` in the corresponding file of `config`.
-          entry: 'application/main.ts',
-          config: 'vite.main.config.ts',
+          entry: 'application/src/main.ts',
+          config: './application/vite.main.config.ts',
           target: 'main',
         },
         {
-          entry: 'application/preload.ts',
-          config: 'vite.preload.config.ts',
+          entry: 'application/src/preload.ts',
+          config: './application/vite.preload.config.ts',
           target: 'preload',
         },
       ],
       renderer: [
         {
           name: 'main_window',
-          config: 'vite.renderer.config.ts',
+          config: './renderer/vite.renderer.config.ts',
         },
       ],
     }),
@@ -51,5 +53,3 @@ const config: ForgeConfig = {
     }),
   ],
 };
-
-export default config;
