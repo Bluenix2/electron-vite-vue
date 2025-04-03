@@ -5,7 +5,7 @@
       "path": "./application/tsconfig.json"
     },
     {
-      "path": "./renderer/tsconfig.json"
+      "path": "./main_window/tsconfig.json"
     }
   ]
 }
