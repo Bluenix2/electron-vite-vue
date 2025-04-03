@@ -19,6 +19,9 @@ press 'Use this template' to create a repository. Afterwards, clone the new
 repository using `git`, GitHub Desktop, or another suitable client, and start
 coding.
 
+Alternatively, download the code as a ZIP and unzip in the desire location. To
+initialize a Git repository, use `git init`.
+
 ## NPM Commands
 
 ### Web-only builds
